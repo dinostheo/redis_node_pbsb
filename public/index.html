@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>PubSub</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+	<script>    
+    	var socket = io.connect('http://localhost:3000');
+
+        socket.on('message', function(message){
+        	$(document).ready(function() {
+   				$('#content').prepend(message + '<br />');
+ 			});
+        });
+    </script>
+</head>
+<body>
+	<div>Check the message:</div>
+    <div id="content"></div>
+</body>
+</html>
