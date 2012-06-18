@@ -6,3 +6,7 @@ A simple node.js socket.io Hello World reading a message published to a channel 
 
 Based on the code I found here:
 http://stackoverflow.com/questions/4441798/how-to-use-redis-publish-subscribe-with-nodejs-to-notify-clients-when-data-value
+
+
+How to run
+==========
