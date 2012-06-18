@@ -3,18 +3,90 @@
     <title>PubSub</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
+    <script>
+    
+    </script>
 	<script>    
     	var socket = io.connect('http://localhost:3000');
 
         socket.on('message', function(message){
         	$(document).ready(function() {
-   				$('#content').prepend(message + '<br />');
+        		var timeID=0;
+
+
+	if($("div.text > p").length>0)
+	{
+	$("div.text > p").css("display","none");
+	$("div.text > p:first").fadeIn(2000).css("display","block").addClass("nowShowing");
+	timeID=setInterval('textRotate()',2000);
+	}
+
+	$("div.text").mouseenter(function(){
+		clearInterval(timeID);
+	});
+
+	$("div.text").mouseleave(function(){
+		timeID=setInterval('textRotate()',2000);
+	});
+
+
+
+});
+
+	function textRotate()
+	{
+
+
+		var items=$("div.text > .nowShowing");
+
+		if(items.length<3)
+		{
+
+			if($("div.text > .nowShowing:last").next().length>0)
+			{
+
+			items.next().fadeIn(2000).css("display","block").addClass("nowShowing");	
+			}
+			else
+			{
+
+			$("div.text > p.nowShowing").each(function(){
+				$(this).slideUp("2000").removeClass("nowShowing");
+			});
+
+			$("div.text > p:first").fadeIn(2000).css("display","block").addClass("nowShowing");	
+			}
+
+
+		}
+		else
+		{
+
+			$("div.text > p.nowShowing:first").slideUp("2000").removeClass("nowShowing");
+
+		}
+
+	}
+        	
+   				$('.text').prepend('<p>' + message + '</p>');
  			});
         });
     </script>
+    		<style type="text/css">
+			div.text{
+
+				height:405px;
+				width:250px;
+				border: 1px solid #bfbfbf;
+
+			}
+			div.text p{
+				padding:2px;
+			}
+		</style>
 </head>
 <body>
 	<div>Check the message:</div>
-    <div id="content"></div>
+    <div class="text"></div>
 </body>
 </html>
