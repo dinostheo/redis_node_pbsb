@@ -18,10 +18,10 @@ if (!module.parent) {
     socket.on('connection', function(client) {
         const subscribe = redis.createClient();
         redisClient.smembers('redis:channels', function (err, channels){
-			for (var i = 0; i < channels.length; i++) {
-				subscribe.psubscribe(channels[i]);
-			}
-		});
+		for (var i = 0; i < channels.length; i++) {
+			subscribe.psubscribe(channels[i]);
+		}
+	});
 
         subscribe.on("pmessage", function(pattern, channel, message) {
             client.send(message);
