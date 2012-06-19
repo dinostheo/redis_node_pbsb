@@ -1,22 +1,17 @@
 <html>
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-        // Make a socket connection and wait to RECEIVE custom 'news' event
-        var socket = io.connect('http://localhost:3000');
-        socket.on(
-            'news',
-            function (data) {
-                console.log(data);
-                $(document).ready(function() {
-   					$('#index').html(data);
- 				});
-            }
-        );
-    </script>
+	<script src="/socket.io/socket.io.js"></script>
+    	<script>
+	        // Make a socket connection and wait to receive message event
+	        var socket = io.connect('http://localhost:3000');
+	        socket.on('news',function (data) {
+	   		$('#content').html(data);
+	        });
+    	</script>
 </head>
 <body>
-    <p id="index"></p>
+	<div>Check the message:</div>
+    	<div id="content"></div>
 </body>
 </html>
