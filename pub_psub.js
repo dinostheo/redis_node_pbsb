@@ -10,7 +10,7 @@ const redisClient = redis.createClient();
 const io = require('socket.io');
 
 if (!module.parent) {
-    app.listen(8080);
+    app.listen(3000);
     console.log("Express server listening on port %d", app.address().port)
 
     const socket  = io.listen(app);
