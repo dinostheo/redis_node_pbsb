@@ -10,7 +10,7 @@ Install
 =======
 Download and install <a href='http://nodejs.org/#download'>node.js</a>
 
-`npm install express`
+`npm install express` <br />
 `npm install socket.io`
 
 How to run pubsub.js
