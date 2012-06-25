@@ -2,7 +2,7 @@ redis_pbsb_node.js_socket.io_Hello_world
 ========================================
 
 
-A simple node.js socket.io Hello World reading a message published to a channel by redis!
+A simple node.js socket.io app that shows notification, which are published to a channel by redis!
 
 Based on the code I found [here](http://stackoverflow.com/questions/4441798/how-to-use-redis-publish-subscribe-with-nodejs-to-notify-clients-when-data-value):
 
@@ -10,7 +10,7 @@ Install
 =======
 Download and install <a href='http://nodejs.org/#download'>node.js</a>
 
-`npm install express` <br />
+`npm install express`<br />
 `npm install socket.io`
 
 How to run pubsub.js
