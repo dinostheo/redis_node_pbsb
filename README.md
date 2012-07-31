@@ -27,3 +27,5 @@ How to run pub_psub.js
 In your redis client `sadd redis:channels channel1 channel2 channel3`
 Check your browser in the port that you have set `e.g. http://localhost:3000` and publish with a redis client a message in any of the channels that you have added in the redis:channels set.
 You will see the live updates!
+
+![githalytics.com alpha](https://cruel-carlota.pagodabox.com/0e65ac0ca54560dad59ec308af9296fc)
